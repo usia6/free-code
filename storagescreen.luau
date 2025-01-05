@@ -23,9 +23,9 @@ if tanks then
     for i=1,#tanks do
         local resource = tanks[i].Resource
         if resourceVolumes[resource] then
-            resourceVolumes[resource] += (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Y)*30
+            resourceVolumes[resource] += (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Y)*10
         else
-            resourceVolumes[resource] = (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Y)*30
+            resourceVolumes[resource] = (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Y)*10
             resourceAmounts[resource] = 0
         end
     end
@@ -115,7 +115,7 @@ for key,value in resourceVolumes do
         resourceName.Parent = infoBackground
 
         local resourceAmount = Instance.new("TextLabel")
-        resourceAmount.Text = "0"
+        resourceAmount.Text = 0
         resourceAmount.TextScaled = true
         resourceAmount.TextXAlignment = Enum.TextXAlignment.Right
         resourceAmount.TextColor3 = Color3.fromRGB(189,189,189)

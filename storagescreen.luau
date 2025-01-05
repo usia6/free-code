@@ -10,9 +10,9 @@ if bins then
     for i=1,#bins do
         local resource = bins[i].Resource
         if resourceVolumes[resource] then
-            resourceVolumes[resource] += bins[i].Size.X*bins[i].Size.Y*bins[i].Size.Y
+            resourceVolumes[resource] += bins[i].Size.X*bins[i].Size.Y*bins[i].Size.Z
         else    
-            resourceVolumes[resource] = bins[i].Size.X*bins[i].Size.Y*bins[i].Size.Y
+            resourceVolumes[resource] = bins[i].Size.X*bins[i].Size.Y*bins[i].Size.Z
             resourceAmounts[resource] = 0
         end
     end
@@ -23,9 +23,9 @@ if tanks then
     for i=1,#tanks do
         local resource = tanks[i].Resource
         if resourceVolumes[resource] then
-            resourceVolumes[resource] += (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Y)*10
+            resourceVolumes[resource] += (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Z)*10
         else
-            resourceVolumes[resource] = (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Y)*10
+            resourceVolumes[resource] = (tanks[i].Size.X*tanks[i].Size.Y*tanks[i].Size.Z)*10
             resourceAmounts[resource] = 0
         end
     end
@@ -220,14 +220,14 @@ while task.wait(1) do
     if bins then
         for i = 1, #bins do
             local resource = bins[i].Resource
-            resourceAmounts[resource] += bins[i]:GetResourceAmount() and bins[i]:GetResourceAmount() or 0
+            resourceAmounts[resource] += bins[i]:GetResourceAmount()
         end
     end
     
     if tanks then
         for i = 1, #tanks do
             local resource = tanks[i].Resource
-            resourceAmounts[resource] += tanks[i]:GetResourceAmount() and tanks[i]:GetResourceAmount() or 0
+            resourceAmounts[resource] += tanks[i]:GetResourceAmount()
         end
     end
 end

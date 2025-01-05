@@ -44,7 +44,8 @@ uiListLayout.FillDirection = Enum.FillDirection.Horizontal
 uiListLayout.Wraps = true
 uiListLayout.Parent = scrollingFrame
 
-local maxSize = (scrollingFrame.AbsoluteWindowSize.X/ELEMENTS_PER_ROW)-scrollingFrame.AbsoluteWindowSize.X*0.0125
+local smaller = canvas.AbsoluteSize.X > canvas.AbsoluteSize.Y and canvas.AbsoluteSize.Y or canvas.AbsoluteSize.X
+local maxSize = (math.floor(scrollingFrame.AbsoluteWindowSize.X/ELEMENTS_PER_ROW))-scrollingFrame.AbsoluteWindowSize.X*0.0125
 
 local exists = false
 for key,value in resourceVolumes do
@@ -90,7 +91,7 @@ for key,value in resourceVolumes do
         if exists then return end
         exists = true
         local infoBackground = Instance.new("Frame")
-        infoBackground.Size = UDim2.fromOffset(canvas.AbsoluteSize.X/2,canvas.AbsoluteSize.X/2)
+        infoBackground.Size = UDim2.fromOffset(smaller/2,smaller/2)
         infoBackground.Position = UDim2.fromOffset((canvas.AbsoluteSize.X-infoBackground.AbsoluteSize.X)/2,(canvas.AbsoluteSize.Y-infoBackground.AbsoluteSize.Y)/2)
         infoBackground.BackgroundColor3 = Color3.fromRGB(55,55,55)
         infoBackground.ZIndex = 3

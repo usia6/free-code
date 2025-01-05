@@ -45,7 +45,7 @@ uiListLayout.Wraps = true
 uiListLayout.Parent = scrollingFrame
 
 local smaller = canvas.AbsoluteSize.X > canvas.AbsoluteSize.Y and canvas.AbsoluteSize.Y or canvas.AbsoluteSize.X
-local maxSize = (math.floor(scrollingFrame.AbsoluteWindowSize.X/ELEMENTS_PER_ROW))-scrollingFrame.AbsoluteWindowSize.X*0.0125
+local maxSize = math.floor(scrollingFrame.AbsoluteWindowSize.X/ELEMENTS_PER_ROW)-scrollingFrame.AbsoluteWindowSize.X*0.0125
 
 local exists = false
 for key,value in resourceVolumes do

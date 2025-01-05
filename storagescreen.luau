@@ -180,20 +180,16 @@ for key,value in resourceVolumes do
         netMeasurement.ZIndex = 4
         netMeasurement.Parent = infoBackground
 
-        local update = nil
-        if update then
-            coroutine.resume(update)
-        else
-            update = coroutine.create(function()
-                while task.wait(0) do
-                    local previousAmount = resourceAmounts[key]
-                    task.wait(1)
-                    local currentAmount = resourceAmounts[key]
-                    netIncome.Text = currentAmount-previousAmount
-                    resourceAmount.Text = currentAmount
-                end
-            end)
-        end
+        local update = coroutine.create(function()
+            while task.wait(0) do
+                local previousAmount = resourceAmounts[key]
+                task.wait(1)
+                local currentAmount = resourceAmounts[key]
+                netIncome.Text = currentAmount-previousAmount
+                resourceAmount.Text = currentAmount
+            end
+        end)
+
         coroutine.resume(update)
 
         local exitButton = Instance.new("TextButton")
@@ -201,8 +197,8 @@ for key,value in resourceVolumes do
         exitButton.TextScaled = true
         exitButton.BackgroundColor3 = Color3.fromRGB(70,70,70)
         exitButton.TextColor3 = Color3.fromRGB(189,189,189)
-        exitButton.Size = UDim2.fromScale(0.05,0.05)
-        exitButton.Position = UDim2.fromScale(0.95,0)
+        exitButton.Size = UDim2.fromScale(0.1,0.1)
+        exitButton.Position = UDim2.fromScale(0.9,0)
         exitButton.ZIndex = 5
         exitButton.Parent = infoBackground
 

@@ -7,3 +7,5 @@ You may configure additional properties in the header of  [`./Script.luau`](http
 Obviously, you must provide power to both the `Microcontroller` and the `TouchScreen`s for the door to actually run.
 
 An example model is included in [`./ExampleModel.json`](https://github.com/usia6/free-code/blob/main/Doors/KeyLockDoor/ExampleModel.json).
+
+<img width="253" height="246" alt="image" src="https://github.com/user-attachments/assets/153c54f6-a240-4dd7-8284-bee69e031989" />

@@ -5,12 +5,15 @@ disk:Write("Interface",[[
 local backgroundFrame=Instance.new("Frame")
 backgroundFrame.Name="BackgroundFrame"
 backgroundFrame.Size=UDim2.fromScale(1,1)
+backgroundFrame.BackgroundColor3=Color3.fromHex("#34363C")
+backgroundFrame.BorderSizePixel=0
 backgroundFrame.Parent=nil
 
 local numPadFrame=Instance.new("Frame")
 numPadFrame.Name="NumPadFrame"
 numPadFrame.Size=UDim2.fromScale(0.58125,0.775)
 numPadFrame.Position=UDim2.fromScale(0.209375,0.225)
+numPadFrame.BackgroundTransparency=1
 numPadFrame.Parent=backgroundFrame
 
 local uiListLayout=Instance.new("UIListLayout")
@@ -23,8 +26,11 @@ uiListLayout.Parent=numPadFrame
 local numberDisplay=Instance.new("TextLabel")
 numberDisplay.Name="NumberDisplay"
 numberDisplay.Text=""
+numberDisplay.TextColor3=Color3.new(1)
 numberDisplay.Size=UDim2.fromScale(0.35,0.225)
 numberDisplay.Position=UDim2.fromScale(0.325,0)
+numberDisplay.BackgroundColor3=Color3.new()
+numberDisplay.BorderSizePixel=0
 numberDisplay.Parent=backgroundFrame
 
 local numberButtonTable={}
@@ -34,7 +40,11 @@ for i=1,10 do
     local numberButton=Instance.new("TextButton")
     numberButton.Name=text
     numberButton.Text=text
+    numberButton.TextColor3=Color3.new(1,1,1)
     numberButton.Size=UDim2.fromScale(0.333,1)
+    numberButton.BackgroundColor3=Color3.fromHex("#636363")
+    numberButton.BorderSizePixel=1
+    numberButton.BorderColor3=Color3.fromHex("#182B36")
     numberButton.LayoutOrder=i
     numberButton.Parent=numPadFrame
 
@@ -56,4 +66,3 @@ return table.freeze(display)
 ]])
 Microcontroller.Code=""
 Microcontroller.StartOnSpawn=false
-Beep(1)

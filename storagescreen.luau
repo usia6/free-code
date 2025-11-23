@@ -34,14 +34,14 @@ end
 local scrollingFrame = Instance.new("ScrollingFrame")
 scrollingFrame.Size = UDim2.fromOffset(canvas.AbsoluteSize.X,canvas.AbsoluteSize.Y)
 scrollingFrame.BackgroundColor3 = Color3.fromRGB(45,45,45)
-scrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.X
+scrollingFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
 scrollingFrame.ZIndex = 0
 scrollingFrame.Parent = canvas
 
 local uiListLayout = Instance.new("UIListLayout")
 uiListLayout.Padding = UDim.new(0,scrollingFrame.AbsoluteCanvasSize.X*0.025)
 uiListLayout.FillDirection = Enum.FillDirection.Horizontal
-uiListLayout.Wraps = true
+uiListLayout.Wraps= true
 uiListLayout.Parent = scrollingFrame
 
 local smaller = canvas.AbsoluteSize.X > canvas.AbsoluteSize.Y and canvas.AbsoluteSize.Y or canvas.AbsoluteSize.X
